@@ -13,7 +13,7 @@ const SkillCard = ({ category, skills, color }) => (
             <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}%</span>
           </div>
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-            <div 
+            <div
               className={`h-2 rounded-full transition-all duration-1000 ${skill.color}`}
               style={{ width: `${skill.level}%` }}
             ></div>
@@ -29,8 +29,8 @@ const TechStack = ({ title, technologies }) => (
     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{title}</h3>
     <div className="flex flex-wrap gap-2">
       {technologies.map((tech, index) => (
-        <span 
-          key={index} 
+        <span
+          key={index}
           className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           {tech}
@@ -46,18 +46,18 @@ const Skills = () => {
       category: 'Frontend Development',
       color: 'bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300',
       skills: [
-        { name: 'React/Next.js', level: 95, color: 'bg-gradient-to-r from-blue-500 to-blue-600' },
+        { name: 'React', level: 95, color: 'bg-gradient-to-r from-blue-500 to-blue-600' },
         { name: 'TypeScript', level: 90, color: 'bg-gradient-to-r from-blue-500 to-blue-600' },
         { name: 'Tailwind CSS', level: 88, color: 'bg-gradient-to-r from-blue-500 to-blue-600' },
-        { name: 'Vue.js', level: 75, color: 'bg-gradient-to-r from-blue-500 to-blue-600' },
+        { name: 'Semantic HTML', level: 75, color: 'bg-gradient-to-r from-blue-500 to-blue-600' },
       ]
     },
     {
       category: 'Backend Development',
       color: 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300',
       skills: [
-        { name: 'Node.js/Express', level: 92, color: 'bg-gradient-to-r from-green-500 to-green-600' },
-        { name: 'Python/Django', level: 85, color: 'bg-gradient-to-r from-green-500 to-green-600' },
+        { name: 'Node.js', level: 92, color: 'bg-gradient-to-r from-green-500 to-green-600' },
+        { name: 'Express', level: 85, color: 'bg-gradient-to-r from-green-500 to-green-600' },
         { name: 'PostgreSQL', level: 88, color: 'bg-gradient-to-r from-green-500 to-green-600' },
         { name: 'MongoDB', level: 80, color: 'bg-gradient-to-r from-green-500 to-green-600' },
       ]
@@ -66,10 +66,10 @@ const Skills = () => {
       category: 'DevOps & Cloud',
       color: 'bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300',
       skills: [
-        { name: 'AWS/Azure', level: 87, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
-        { name: 'Docker/Kubernetes', level: 82, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
+        { name: 'AWS', level: 87, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
+        { name: 'Docker', level: 82, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
         { name: 'CI/CD Pipelines', level: 85, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
-        { name: 'Terraform', level: 78, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
+        { name: 'Jenkins', level: 78, color: 'bg-gradient-to-r from-purple-500 to-purple-600' },
       ]
     },
     {
@@ -77,9 +77,9 @@ const Skills = () => {
       color: 'bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300',
       skills: [
         { name: 'React Native', level: 83, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
-        { name: 'GraphQL', level: 80, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
-        { name: 'Redis', level: 75, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
-        { name: 'Elasticsearch', level: 70, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
+        { name: 'Git', level: 80, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
+        { name: 'NGINX', level: 75, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
+        { name: 'Webpack', level: 70, color: 'bg-gradient-to-r from-orange-500 to-orange-600' },
       ]
     }
   ];
@@ -87,27 +87,25 @@ const Skills = () => {
   const techStacks = [
     {
       title: 'Languages',
-      technologies: ['JavaScript', 'TypeScript', 'Python', 'Go', 'Java', 'SQL']
+      technologies: ['JavaScript', 'TypeScript', 'SQL']
     },
     {
       title: 'Frameworks & Libraries',
-      technologies: ['React', 'Next.js', 'Vue.js', 'Express.js', 'Django', 'FastAPI', 'Tailwind CSS']
+      technologies: ['React', 'Next.js', 'Express.js', 'FastAPI', 'Tailwind CSS']
     },
     {
       title: 'Databases & Storage',
-      technologies: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'S3', 'Firebase']
+      technologies: ['PostgreSQL', 'MongoDB', 'Redis', 'S3', 'Firebase']
     },
     {
       title: 'Tools & Platforms',
-      technologies: ['Git', 'Docker', 'Kubernetes', 'AWS', 'Vercel', 'Figma', 'Postman']
+      technologies: ['Git', 'Docker', 'AWS', 'Vercel', 'Figma', 'Postman']
     }
   ];
 
   const certifications = [
-    { name: 'AWS Certified Solutions Architect', date: '2023', status: 'Active' },
     { name: 'React Professional Developer', date: '2022', status: 'Active' },
-    { name: 'Google Cloud Professional', date: '2023', status: 'Active' },
-    { name: 'Kubernetes Administrator', date: '2022', status: 'Active' },
+    { name: 'Hack Reactor Software Engineering Immersive', date: '2020', status: 'Active' },
   ];
 
   return (
@@ -158,11 +156,11 @@ const Skills = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-              <span className="text-gray-700 dark:text-gray-300">Rust Programming Language</span>
+              <span className="text-gray-700 dark:text-gray-300">Agentic AI</span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className="text-gray-700 dark:text-gray-300">Machine Learning with TensorFlow</span>
+              <span className="text-gray-700 dark:text-gray-300">Machine Learning </span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
@@ -170,7 +168,7 @@ const Skills = () => {
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
-              <span className="text-gray-700 dark:text-gray-300">WebAssembly (WASM)</span>
+              <span className="text-gray-700 dark:text-gray-300">Swift App Development</span>
             </div>
           </div>
         </div>
@@ -181,15 +179,15 @@ const Skills = () => {
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Skills Performance Metrics</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">95%</div>
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">99%</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Code Quality Score</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">8.5/10</div>
+            <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">10/10</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Team Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">24</div>
+            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">20+</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Technologies</div>
           </div>
           <div className="text-center">

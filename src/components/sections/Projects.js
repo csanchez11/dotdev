@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import SnakeApp from '../projects/Snake';
 
 const ProjectCard = ({ project, onSelect }) => (
-  <div 
+  <div
     className="bg-white dark:bg-dark-card rounded-lg p-6 border border-gray-200 dark:border-dark-border hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all cursor-pointer"
     onClick={() => onSelect(project)}
   >
@@ -11,7 +12,7 @@ const ProjectCard = ({ project, onSelect }) => (
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">{project.description}</p>
       </div>
       <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-        project.status === 'Live' 
+        project.status === 'Live'
           ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300'
           : project.status === 'In Progress'
           ? 'bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300'
@@ -23,7 +24,7 @@ const ProjectCard = ({ project, onSelect }) => (
 
     <div className="flex flex-wrap gap-2 mb-4">
       {project.technologies.slice(0, 3).map((tech, index) => (
-        <span 
+        <span
           key={index}
           className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded text-xs font-medium"
         >
@@ -58,7 +59,7 @@ const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div className="!mt-0 fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
       <div className="bg-white dark:bg-dark-card rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="p-6 border-b border-gray-200 dark:border-dark-border flex items-center justify-between">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">{project.name}</h2>
@@ -68,76 +69,83 @@ const ProjectModal = ({ project, onClose }) => {
             </svg>
           </button>
         </div>
-        
         <div className="p-6 space-y-6">
+        {
+          project.name === 'Snake Game' ? (
+          <SnakeApp />
+        ) : (
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Overview</h3>
-            <p className="text-gray-600 dark:text-gray-400">{project.fullDescription}</p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features</h3>
-            <ul className="space-y-2">
-              {project.features.map((feature, index) => (
-                <li key={index} className="flex items-start space-x-2">
-                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2"></div>
-                  <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Technologies Used</h3>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
             <div>
-              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Project Metrics</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Duration:</span>
-                  <span className="text-gray-900 dark:text-white">{project.duration}</span>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Overview</h3>
+              <p className="text-gray-600 dark:text-gray-400">{project.fullDescription}</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Key Features</h3>
+              <ul className="space-y-2">
+                {project.features.map((feature, index) => (
+                  <li key={index} className="flex items-start space-x-2">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2"></div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Technologies Used</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-2">Project Metrics</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Duration:</span>
+                    <span className="text-gray-900 dark:text-white">{project.duration}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Team Size:</span>
+                    <span className="text-gray-900 dark:text-white">{project.teamSize}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Role:</span>
+                    <span className="text-gray-900 dark:text-white">{project.role}</span>
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Team Size:</span>
-                  <span className="text-gray-900 dark:text-white">{project.teamSize}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Role:</span>
-                  <span className="text-gray-900 dark:text-white">{project.role}</span>
+              </div>
+
+              <div>
+                <h4 className="font-medium text-gray-900 dark:text-white mb-2">Performance</h4>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Users:</span>
+                    <span className="text-gray-900 dark:text-white">{project.users}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Growth:</span>
+                    <span className="text-green-600 dark:text-green-400">{project.growth}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Rating:</span>
+                    <span className="text-yellow-600 dark:text-yellow-400">⭐ {project.rating}</span>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div>
-              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Performance</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Users:</span>
-                  <span className="text-gray-900 dark:text-white">{project.users}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Growth:</span>
-                  <span className="text-green-600 dark:text-green-400">{project.growth}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Rating:</span>
-                  <span className="text-yellow-600 dark:text-yellow-400">⭐ {project.rating}</span>
-                </div>
-              </div>
-            </div>
           </div>
+        )}
+
         </div>
       </div>
     </div>
@@ -150,140 +158,84 @@ const Projects = () => {
 
   const projects = [
     {
-      name: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with real-time inventory management',
-      fullDescription: 'A comprehensive e-commerce platform built for a mid-size retailer, featuring real-time inventory management, payment processing, and analytics dashboard. The platform handles 10,000+ daily transactions and supports multiple payment gateways.',
+      name: 'Authentication SDK for JPMorgan Chase',
+      description: 'React-based Component Library and Application for Chase customers to Login',
+      fullDescription: 'A versatile Authentication SDK deployed across 277 different JPMorgan Chase products, supporting diverse use cases including Next.js implementations, embedded iFrames, and standalone platforms',
       status: 'Live',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Stripe', 'Redis', 'Docker'],
+      technologies: ['React', 'Node.js', 'NPM Published', 'Jest', 'Cypress', 'SASS'],
       rating: '4.8',
       growth: '+156%',
       features: [
-        'Real-time inventory tracking and management',
-        'Multiple payment gateway integration',
-        'Advanced analytics and reporting dashboard',
+        'Works within iFrame and standalone',
+        'Server-side and Client-side Rendering',
+        'Advanced analytics and reporting',
         'Mobile-responsive design with PWA capabilities',
-        'Automated order processing and notifications',
-        'Multi-vendor marketplace support'
+        'WCAG 2.0 Accessibility Compliant',
+        'Multi-stakeholder support'
       ],
       duration: '8 months',
       teamSize: '5 developers',
       role: 'Lead Developer',
-      users: '50K+',
-      category: 'Web Application'
+      users: '80MM+',
+      category: 'Authentication'
     },
     {
-      name: 'Trading Dashboard',
-      description: 'Real-time cryptocurrency trading platform with advanced analytics',
-      fullDescription: 'A sophisticated trading dashboard for cryptocurrency markets featuring real-time data streams, technical analysis tools, and automated trading capabilities. Built to handle high-frequency trading with sub-millisecond response times.',
+      name: 'Amazon Prime X Chase Credit Card',
+      description: 'A cross-platform integrated experience between Amazon and Chase',
+      fullDescription: 'A seamless integration between Amazon Prime Credit Cards and Chase Online accounts, enhancing user experience and transaction efficiency through secure, API-driven communication',
       status: 'Live',
-      technologies: ['React', 'WebSocket', 'Python', 'FastAPI', 'MongoDB', 'Chart.js'],
+      technologies: ['React', 'SingleSPA', 'GraphQL', 'Adobe Analytics', 'Testing Automation'],
       rating: '4.9',
       growth: '+203%',
       features: [
-        'Real-time price feeds and market data',
-        'Advanced charting with technical indicators',
-        'Automated trading bot integration',
-        'Portfolio management and risk analysis',
-        'Multi-exchange connectivity',
-        'Mobile trading application'
+        'Seemless Account Linking',
+        'Advanced Analytics tracking',
+        'A/B Testing of Content and Features',
+        'Automated Testing'
       ],
-      duration: '12 months',
-      teamSize: '8 developers',
-      role: 'Senior Developer',
-      users: '25K+',
+      duration: '4 months',
+      teamSize: '16 developers',
+      role: 'Developer',
+      users: '1MM+',
       category: 'Fintech'
     },
     {
-      name: 'Healthcare Management System',
-      description: 'Comprehensive patient management system for healthcare providers',
-      fullDescription: 'A complete healthcare management solution including patient records, appointment scheduling, billing, and telemedicine capabilities. HIPAA compliant with advanced security features.',
-      status: 'Live',
-      technologies: ['Vue.js', 'Django', 'PostgreSQL', 'AWS', 'WebRTC', 'Terraform'],
+      name: 'Snake Game',
+      description: 'A fun mini-game built in two hours using HTML Canvas',
+      fullDescription: '',
+      status: 'Complete',
+      technologies: ['HTML Canvas', 'React'],
       rating: '4.7',
       growth: '+89%',
-      features: [
-        'Electronic health records (EHR) system',
-        'Appointment scheduling and management',
-        'Telemedicine video consultation platform',
-        'Billing and insurance claim processing',
-        'Prescription management system',
-        'HIPAA compliant security measures'
-      ],
-      duration: '14 months',
-      teamSize: '12 developers',
-      role: 'Technical Lead',
-      users: '15K+',
-      category: 'Healthcare'
+      features: [],
+      duration: '2 hours',
+      teamSize: '1 developers',
+      role: 'Lead Architect',
+      users: '1',
+      category: 'Independent Learning'
     },
     {
-      name: 'Social Learning Platform',
-      description: 'Interactive learning platform with gamification and social features',
-      fullDescription: 'An innovative e-learning platform that combines traditional online learning with social networking and gamification elements. Features include peer-to-peer learning, progress tracking, and achievement systems.',
+      name: 'Portfolio Dashboard Website',
+      description: 'Interactive website demonstrating my unique skills and abilities',
+      fullDescription: 'An innovative website built to look like a dashboard that displays my skillset',
       status: 'In Progress',
-      technologies: ['Next.js', 'GraphQL', 'Prisma', 'PostgreSQL', 'Vercel', 'Stripe'],
+      technologies: ['React', 'Tailwind', 'Vite', 'Vercel'],
       rating: '4.6',
       growth: '+134%',
       features: [
-        'Interactive course creation tools',
-        'Peer-to-peer learning communities',
-        'Gamification and achievement system',
-        'Real-time collaboration features',
-        'AI-powered learning recommendations',
-        'Mobile learning applications'
+        'Light and Dark mode',
+        'Responsive Web Design',
+        'Interactive Games'
       ],
-      duration: '10 months',
-      teamSize: '6 developers',
-      role: 'Full-stack Developer',
-      users: '8K+',
-      category: 'Education'
-    },
-    {
-      name: 'IoT Monitoring Dashboard',
-      description: 'Real-time monitoring system for industrial IoT devices',
-      fullDescription: 'A comprehensive IoT monitoring solution for industrial equipment, featuring real-time sensor data visualization, predictive maintenance alerts, and automated reporting capabilities.',
-      status: 'Completed',
-      technologies: ['Angular', 'Node.js', 'InfluxDB', 'MQTT', 'Docker', 'Kubernetes'],
-      rating: '4.5',
-      growth: '+67%',
-      features: [
-        'Real-time sensor data visualization',
-        'Predictive maintenance algorithms',
-        'Automated alert and notification system',
-        'Historical data analysis and reporting',
-        'Device management and configuration',
-        'Scalable microservices architecture'
-      ],
-      duration: '6 months',
-      teamSize: '4 developers',
-      role: 'Backend Developer',
-      users: '2K+',
-      category: 'IoT'
-    },
-    {
-      name: 'Content Management CMS',
-      description: 'Headless CMS with advanced content editing and publishing features',
-      fullDescription: 'A modern headless CMS built for content creators and marketers, featuring drag-and-drop editing, multi-language support, and advanced SEO optimization tools.',
-      status: 'Live',
-      technologies: ['React', 'Strapi', 'MongoDB', 'AWS S3', 'CloudFront', 'Algolia'],
-      rating: '4.4',
-      growth: '+112%',
-      features: [
-        'Drag-and-drop content editor',
-        'Multi-language and localization support',
-        'Advanced SEO optimization tools',
-        'Media asset management system',
-        'Role-based access control',
-        'API-first architecture'
-      ],
-      duration: '5 months',
-      teamSize: '3 developers',
-      role: 'Lead Developer',
-      users: '12K+',
-      category: 'CMS'
+      duration: '2 months',
+      teamSize: '1 developer',
+      role: 'Developer',
+      users: '??',
+      category: 'Independent Learning'
     }
   ];
 
-  const categories = ['All', 'Web Application', 'Fintech', 'Healthcare', 'Education', 'IoT', 'CMS'];
+  const categories = ['All', 'Authentication', 'Fintech', 'Independent Learning'];
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
@@ -297,7 +249,7 @@ const Projects = () => {
               A showcase of my recent work and achievements
             </p>
           </div>
-          
+
           <div className="flex flex-wrap gap-2">
             {categories.map(category => (
               <button
@@ -329,7 +281,7 @@ const Projects = () => {
           <div className="text-sm text-gray-600 dark:text-gray-400">Live Projects</div>
         </div>
         <div className="bg-white dark:bg-dark-card rounded-lg p-6 border border-gray-200 dark:border-dark-border text-center">
-          <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">162K+</div>
+          <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">80MM+</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Total Users</div>
         </div>
         <div className="bg-white dark:bg-dark-card rounded-lg p-6 border border-gray-200 dark:border-dark-border text-center">
@@ -341,18 +293,18 @@ const Projects = () => {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {filteredProjects.map((project, index) => (
-          <ProjectCard 
-            key={index} 
-            project={project} 
+          <ProjectCard
+            key={index}
+            project={project}
             onSelect={setSelectedProject}
           />
         ))}
       </div>
 
       {/* Project Modal */}
-      <ProjectModal 
-        project={selectedProject} 
-        onClose={() => setSelectedProject(null)} 
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
       />
     </div>
   );

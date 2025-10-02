@@ -12,7 +12,7 @@ const About = () => {
     { label: 'Years Experience', value: '5+' },
     { label: 'Daily Users', value: '5.9MM+' },
     { label: 'Technologies', value: '20+' },
-    { label: 'Clients Satisfied', value: '30+' },
+    { label: 'Stakeholders Satisfied', value: '200+' },
   ];
 
   return (
@@ -92,13 +92,12 @@ const About = () => {
             </div>
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
-                <h4 className="font-semibold text-gray-900 dark:text-white">Full-Stack Developer</h4>
-                <span className="text-sm text-gray-500 dark:text-gray-400">2020 - 2022</span>
+                <h4 className="font-semibold text-gray-900 dark:text-white">Member Advocate</h4>
+                <span className="text-sm text-gray-500 dark:text-gray-400">2019 - 2020</span>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">StartupXYZ</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">Happy Money</p>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
-                Built MVP products from scratch, worked with product teams to define technical requirements,
-                and implemented CI/CD pipelines.
+                - Supported customers in navigating complex financial issues by providing tailored guidance and support, while proactively recommending better utilization of financial leverage for long-term economic wellness
               </p>
             </div>
           </div>
@@ -110,13 +109,29 @@ const About = () => {
             </div>
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
-                <h4 className="font-semibold text-gray-900 dark:text-white">Junior Developer</h4>
-                <span className="text-sm text-gray-500 dark:text-gray-400">2019 - 2020</span>
+                <h4 className="font-semibold text-gray-900 dark:text-white">Campaign Manager</h4>
+                <span className="text-sm text-gray-500 dark:text-gray-400">2017 - 2018</span>
               </div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">WebDev Agency</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">Agency 2.0</p>
               <p className="text-gray-700 dark:text-gray-300 text-sm">
-                Started my professional journey building responsive websites and learning modern development practices.
-                Focused on frontend technologies and user experience design.
+                - Successfully crowdfunded over $3MM through individualized product launch campaigns, targeted digital marketing and coordinating the efforts of a multi-disciplinary team
+              </p>
+            </div>
+          </div>
+
+          <div className="flex space-x-4">
+            <div className="flex flex-col items-center">
+              <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
+              <div className="w-0.5 h-full bg-gray-300 dark:bg-gray-600 mt-2"></div>
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center space-x-2 mb-1">
+                <h4 className="font-semibold text-gray-900 dark:text-white">Specialist</h4>
+                <span className="text-sm text-gray-500 dark:text-gray-400">2014 - 2017</span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">Apple</p>
+              <p className="text-gray-700 dark:text-gray-300 text-sm">
+                - Developed end-to-end solutions for businesses and individuals to increase productivity while maintaining a Net Promoter Score of 98
               </p>
             </div>
           </div>

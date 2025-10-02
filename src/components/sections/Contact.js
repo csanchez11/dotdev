@@ -54,7 +54,7 @@ const ContactForm = () => {
           />
         </div>
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Subject *
@@ -69,7 +69,7 @@ const ContactForm = () => {
           placeholder="What's this about?"
         />
       </div>
-      
+
       <div>
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Message *
@@ -84,7 +84,7 @@ const ContactForm = () => {
           placeholder="Tell me about your project or inquiry..."
         />
       </div>
-      
+
       <button
         type="submit"
         className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all"
@@ -103,8 +103,8 @@ const ContactCard = ({ icon, title, info, link, color }) => (
     <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
     <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">{info}</p>
     {link && (
-      <a 
-        href={link} 
+      <a
+        href={link}
         className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium transition-colors"
         target="_blank"
         rel="noopener noreferrer"
@@ -120,30 +120,23 @@ const Contact = () => {
     {
       icon: '📧',
       title: 'Email',
-      info: 'john.developer@email.com',
-      link: 'mailto:john.developer@email.com',
+      info: 'email.chris.sanchez@icloud.com',
+      link: 'mailto:email.chris.sanchez@icloud.com',
       color: 'bg-blue-100 dark:bg-blue-900/20'
     },
     {
       icon: '💼',
       title: 'LinkedIn',
       info: 'Connect with me professionally',
-      link: 'https://linkedin.com/in/johndeveloper',
+      link: 'https://linkedin.com/in/csanchez11/',
       color: 'bg-blue-100 dark:bg-blue-900/20'
     },
     {
       icon: '🐙',
       title: 'GitHub',
       info: 'Check out my open source work',
-      link: 'https://github.com/johndeveloper',
+      link: 'https://github.com/csanchez11',
       color: 'bg-gray-100 dark:bg-gray-800'
-    },
-    {
-      icon: '🐦',
-      title: 'Twitter',
-      info: 'Follow me for tech updates',
-      link: 'https://twitter.com/johndeveloper',
-      color: 'bg-blue-100 dark:bg-blue-900/20'
     }
   ];
 
@@ -224,7 +217,7 @@ const Contact = () => {
               <span className="font-semibold text-gray-900 dark:text-white">Currently Available</span>
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              I'm actively looking for new opportunities and interesting projects. 
+              I'm actively looking for new opportunities and interesting projects.
               Let's discuss how we can work together!
             </p>
           </div>
