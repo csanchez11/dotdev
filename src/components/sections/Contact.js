@@ -7,12 +7,36 @@ const ContactForm = () => {
     subject: '',
     message: ''
   });
+  const [status, setStatus] = useState(''); // 'sending', 'success', 'error'
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setStatus('sending');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus(''), 5000); // Clear success message after 5s
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus(''), 5000);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setStatus('error');
+      setTimeout(() => setStatus(''), 5000);
+    }
   };
 
   const handleChange = (e) => {
@@ -85,11 +109,24 @@ const ContactForm = () => {
         />
       </div>
 
+      {status === 'success' && (
+        <div className="p-4 bg-green-100 dark:bg-green-900/20 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 rounded-lg">
+          Thank you for your message! I'll get back to you soon.
+        </div>
+      )}
+
+      {status === 'error' && (
+        <div className="p-4 bg-red-100 dark:bg-red-900/20 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 rounded-lg">
+          Failed to send message. Please try again or email me directly.
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all"
+        disabled={status === 'sending'}
+        className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Send Message
+        {status === 'sending' ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );
@@ -193,7 +230,7 @@ const Contact = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <span className="text-gray-500 dark:text-gray-400">📍</span>
-                <span className="text-gray-700 dark:text-gray-300">San Francisco, CA</span>
+                <span className="text-gray-700 dark:text-gray-300">Long Beach, CA</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-gray-500 dark:text-gray-400">🕐</span>
@@ -201,7 +238,7 @@ const Contact = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-gray-500 dark:text-gray-400">💬</span>
-                <span className="text-gray-700 dark:text-gray-300">English, Spanish</span>
+                <span className="text-gray-700 dark:text-gray-300">English</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-gray-500 dark:text-gray-400">⚡</span>
@@ -233,12 +270,8 @@ const Contact = () => {
             <div className="text-sm text-gray-600 dark:text-gray-400">Average Response Time</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">98%</div>
+            <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">100%</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Response Rate</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">150+</div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Projects Discussed</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-orange-600 dark:text-orange-400 mb-2">5.0</div>
