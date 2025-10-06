@@ -23,6 +23,7 @@ const ContactForm = () => {
       });
 
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
         setStatus('success');
@@ -133,7 +134,7 @@ const ContactForm = () => {
 };
 
 const ContactCard = ({ icon, title, info, link, color }) => (
-  <div className="bg-white dark:bg-dark-card rounded-lg p-6 border border-gray-200 dark:border-dark-border hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all">
+  <div className="break-words bg-white dark:bg-dark-card rounded-lg p-6 border border-gray-200 dark:border-dark-border hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all">
     <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${color}`}>
       <span className="text-xl">{icon}</span>
     </div>

@@ -40,7 +40,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${resendApiKey}`
       },
       body: JSON.stringify({
-        from: 'contact@yourdomain.com', // You'll need to configure this with your domain
+        from: 'onboarding@resend.dev', // On free tier, you can only use onboarding@resend.dev as the from address
         to: toEmail,
         subject: `Contact Form: ${subject}`,
         html: `
