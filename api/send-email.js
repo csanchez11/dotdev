@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     // Send email using Resend (you'll need to install and configure this)
     // For now, we'll use a fetch to Resend API
     const resendApiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.TO_EMAIL || 'email.chris.sanchez@icloud.com';
+    const toEmail = process.env.TO_EMAIL || 'chrissanchez89@gmail.com';
 
     if (!resendApiKey) {
       // If no API key configured, log the message and return success
