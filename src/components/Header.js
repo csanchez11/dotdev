@@ -42,7 +42,7 @@ const Header = ({ isMobileSidebarOpen, setIsMobileSidebarOpen }) => {
               <span className="text-white font-bold text-sm">CS</span>
             </div>
             <h1 className="ml-3 text-xl font-bold text-gray-900 dark:text-white">
-              Portfolio Dashboard
+              Chris Sanchez's Portfolio
             </h1>
           </div>
         </div>

@@ -27,10 +27,10 @@ const ActivityItem = ({ time, action, status }) => (
 
 const Overview = () => {
   const metrics = [
-    { title: 'Portfolio Value', value: '$127,549', change: '+12.3% this month', icon: '💰', color: 'text-green-600 dark:text-green-400' },
-    { title: 'Active Projects', value: '8', change: '+2 this quarter', icon: '📈', color: 'text-blue-600 dark:text-blue-400' },
+    // { title: 'Portfolio Value', value: '$127,549', change: '+12.3% this month', icon: '💰', color: 'text-green-600 dark:text-green-400' },
+    { title: 'Active Projects', value: '5', change: '+1 this quarter', icon: '📈', color: 'text-blue-600 dark:text-blue-400' },
     { title: 'Skills Mastered', value: '24', change: '+3 recently', icon: '🎯', color: 'text-purple-600 dark:text-purple-400' },
-    { title: 'Experience', value: '5+ Years', change: 'Full-stack dev', icon: '⚡', color: 'text-orange-600 dark:text-orange-400' },
+    { title: 'Experience', value: '5+ Years', change: 'Front-End dev', icon: '⚡', color: 'text-orange-600 dark:text-orange-400' },
   ];
 
   const recentActivity = [
@@ -44,8 +44,8 @@ const Overview = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-6 text-white">
-        <h2 className="text-2xl font-bold mb-2">Portfolio Dashboard</h2>
-        <p className="text-blue-100">Welcome to my professional trading-style portfolio interface</p>
+        <h2 className="text-2xl font-bold mb-2">Dashboard</h2>
+        <p className="text-blue-100">Welcome to my portfolio website built to look like a application dashboard.</p>
       </div>
 
       {/* Metrics Grid */}
@@ -61,11 +61,11 @@ const Overview = () => {
         <div className="lg:col-span-2 bg-white dark:bg-dark-card rounded-lg p-6 border border-gray-200 dark:border-dark-border">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Skills Growth Chart</h3>
           <div className="h-64 relative">
-            <div className="absolute bottom-8 left-0 right-0 flex items-end justify-center space-x-3">
-              {[65, 78, 85, 72, 90, 88, 95].map((height, index) => (
+            <div className="h-64 absolute overflow-x-hidden bottom-2 left-0 right-0 flex items-end justify-center space-x-3">
+              {[71, 89, 74, 90, 88, 95].map((height, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className="relative">
-                    <div 
+                    <div
                       className="w-10 bg-gradient-to-t from-blue-500 to-purple-500 rounded-t transition-all duration-1000 ease-out"
                       style={{ height: `${Math.max(height * 2, 20)}px` }}
                     ></div>
@@ -76,14 +76,14 @@ const Overview = () => {
                     </div>
                   </div>
                   <span className="text-xs text-gray-500 dark:text-gray-400 mt-3 font-medium">
-                    {['JS', 'React', 'Node', 'Python', 'AWS', 'Docker', 'TS'][index]}
+                    {['CSS', 'HTML', 'Node', 'React', 'TS', 'JS'][index]}
                   </span>
                 </div>
               ))}
             </div>
-            
+
             {/* Chart grid lines */}
-            <div className="absolute inset-0 pointer-events-none">
+            {/* <div className="invisible sm:visible absolute inset-0 pointer-events-none">
               <div className="h-full flex flex-col justify-between py-8">
                 {[100, 75, 50, 25, 0].map((value, index) => (
                   <div key={index} className="flex items-center">
@@ -92,7 +92,7 @@ const Overview = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
